@@ -5,29 +5,29 @@
 	s.src="js/async.js";
 	 document.documentElement.firstChild.appendChild(s);
 
-	sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
-		sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
+	sQ.load('js/script1.js?r=<?php echo rand(); ?>', function(){
+		sQ.load('js/script1.js?r=<?php echo rand(); ?>', function(){
 			document.write('--- RECURSIVE VORHER script1 ' , new Date, "<br/>")
 		});
 		
-		sQ.enqueue('js/script2.js?r=<?php echo rand(); ?>', function(){
+		sQ.load('js/script2.js?r=<?php echo rand(); ?>', function(){
 			document.write('--- RECURSIVE script2 ' , new Date, "<br/>")
 		});
 		
-		sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
+		sQ.load('js/script1.js?r=<?php echo rand(); ?>', function(){
 			document.write('--- RECURSIVE script1 ' , new Date, "<br/>")
 		});
 	});
 
-	sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
+	sQ.load('js/script1.js?r=<?php echo rand(); ?>', function(){
 		document.write('script 1 ebene0 '+bQuery, new Date, "<br/>")
 	});
-	
-	sQ.enqueue('js/script2.js?r=<?php echo rand(); ?>', function(){
+	/*
+	sQ.load('js/script2.js?r=<?php echo rand(); ?>', function(){
 		document.write('script 2 ebene0 ' , new Date, "<br/>")
 	});
-	
-	sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
+	*/
+	sQ.load('js/script1.js?r=<?php echo rand(); ?>', function(){
 		document.write('script 1 ebene0 '+bQuery, new Date, "<br/>")
 	});
 	
