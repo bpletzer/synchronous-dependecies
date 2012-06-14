@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<script>
-sdu = false;
-document.write('<script src="data:text/javascript;base64,c2R1PTE="><'+'/script>');
-</script>
-<script src="js/doCallback.js?r=<?php echo rand(); ?>"></script>
+<script src="js/syncQueue.js?r=<?php echo rand(); ?>"></script>
 <script>
 	var s = document.createElement('script')
 	s.src="js/async.js";
 	 document.documentElement.firstChild.appendChild(s);
 
-	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
-		doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+	sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
+		sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
 			document.write('--- RECURSIVE VORHER script1 ' , new Date, "<br/>")
 		});
 		
-		doCallback('js/script2.js?r=<?php echo rand(); ?>', function(){
+		sQ.enqueue('js/script2.js?r=<?php echo rand(); ?>', function(){
 			document.write('--- RECURSIVE script2 ' , new Date, "<br/>")
 		});
 		
-		doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+		sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
 			document.write('--- RECURSIVE script1 ' , new Date, "<br/>")
 		});
 	});
 
-	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+	sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
 		document.write('script 1 ebene0 '+bQuery, new Date, "<br/>")
 	});
 	
-	doCallback('js/script2.js?r=<?php echo rand(); ?>', function(){
+	sQ.enqueue('js/script2.js?r=<?php echo rand(); ?>', function(){
 		document.write('script 2 ebene0 ' , new Date, "<br/>")
 	});
 	
-	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+	sQ.enqueue('js/script1.js?r=<?php echo rand(); ?>', function(){
 		document.write('script 1 ebene0 '+bQuery, new Date, "<br/>")
 	});
 	

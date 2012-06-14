@@ -1,1 +1,0 @@
-(function(w,c){w[c]=w[c]||[];(c=w[c].shift())?c.call():w})(window,"callback")
