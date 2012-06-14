@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script>
+sdu = false;
+document.write('<script src="data:text/javascript;base64,c2R1PTE="><'+'/script>');
+</script>
+<script src="js/doCallback.js?r=<?php echo rand(); ?>"></script>
+<script>
+	var s = document.createElement('script')
+	s.src="js/async.js";
+	 document.documentElement.firstChild.appendChild(s);
+
+	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+		doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+			document.write('--- RECURSIVE VORHER script1 '+blub, new Date, "<br/>")
+		});
+		
+		doCallback('js/script2.js?r=<?php echo rand(); ?>', function(){
+			document.write('--- RECURSIVE script2 '+blub, new Date, "<br/>")
+		});
+		
+		doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+			document.write('--- RECURSIVE script1 '+blub, new Date, "<br/>")
+		});
+	});
+
+	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+		document.write('script 1 ebene0 '+bQuery, new Date, "<br/>")
+	});
+	
+	doCallback('js/script2.js?r=<?php echo rand(); ?>', function(){
+		document.write('script 2 ebene0 '+blub, new Date, "<br/>")
+	});
+	
+	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
+		document.write('script 1 ebene0 '+bQuery, new Date, "<br/>")
+	});
+	
+
+	document.write('WHILE ', new Date, "<br/>")
+</script>
+MEANWHILE<br/>
+<script>
+	document.write('<script src="js/script1.js?r=<?php echo rand(); ?>"><'+'/script>', 'AFTER<br/>');
+</script>
+<script>
+	document.write('<script src="js/script2.js?r=<?php echo rand(); ?>"><'+'/script>', 'AFTER<br/>');
+</script
+<br/>END
