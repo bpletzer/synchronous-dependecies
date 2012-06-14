@@ -11,15 +11,15 @@ document.write('<script src="data:text/javascript;base64,c2R1PTE="><'+'/script>'
 
 	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
 		doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
-			document.write('--- RECURSIVE VORHER script1 '+blub, new Date, "<br/>")
+			document.write('--- RECURSIVE VORHER script1 ' , new Date, "<br/>")
 		});
 		
 		doCallback('js/script2.js?r=<?php echo rand(); ?>', function(){
-			document.write('--- RECURSIVE script2 '+blub, new Date, "<br/>")
+			document.write('--- RECURSIVE script2 ' , new Date, "<br/>")
 		});
 		
 		doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
-			document.write('--- RECURSIVE script1 '+blub, new Date, "<br/>")
+			document.write('--- RECURSIVE script1 ' , new Date, "<br/>")
 		});
 	});
 
@@ -28,7 +28,7 @@ document.write('<script src="data:text/javascript;base64,c2R1PTE="><'+'/script>'
 	});
 	
 	doCallback('js/script2.js?r=<?php echo rand(); ?>', function(){
-		document.write('script 2 ebene0 '+blub, new Date, "<br/>")
+		document.write('script 2 ebene0 ' , new Date, "<br/>")
 	});
 	
 	doCallback('js/script1.js?r=<?php echo rand(); ?>', function(){
