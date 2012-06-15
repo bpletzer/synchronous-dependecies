@@ -2,13 +2,13 @@
 	root.sQ = factory();
 	d.write('<script src="data:text/javascript;base64,c1EuZHU9MQ=="><'+'/script>');
 
-	if ("function" typeof define && define.amd) {
+	if ("function" === typeof define && define.amd) {
 		define("syncQueue", root.sQ);
 	}
 
 })(this, document, function(){
 	var queue = [],
-		triggerSyncDequeue = (this.du) ? "data:text/javascript;base64,c1EuZHEoKQ==" : "js/triggerSyncDequeue.js";
+		triggerSyncDequeue = (this.du) ? "data:text/javascript;base64,c1EuZHEoKQ==" : "syncQueue/triggerSyncDequeue.js";
 
 	return {
 		load: function  (src, func){
