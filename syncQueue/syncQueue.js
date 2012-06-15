@@ -18,7 +18,7 @@
 		// dequeue
 		dq: function () {
 			var item = queue.shift();
-			if (item) {
+			if ('function' === typeof item) {
 				item.call()
 			}
 		},
