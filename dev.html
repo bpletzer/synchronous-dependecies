@@ -3,3 +3,21 @@ start<br/>
 <script src="dev/sleep.js?r=<?php echo rand(); ?>"></script>
 <script>(function(d){if(-1<d.location.hash.indexOf('dev'))d.write('<script src="dev/dev.js?r=<?php echo rand(); ?>"><'+'/script>', '<noscript>');})(document)</script><script src="dev/live.js?r=<?php echo rand(); ?>"></script></noscript>
 end<br/>
+
+
+
+BEGIN SECOND TEST<br/>
+<?php
+$rand=rand();
+?>
+<script>
+	document.write('<noscript>');
+</script>
+	<script src="dev/lookahead.js?r=<?= $rand; ?>"></script>
+</noscript>
+
+<script src="dev/sleep.js?r=<?php echo rand(); ?>"></script>
+<script>
+	document.write('<script src="dev/lookahead.js?r=<?= $rand; ?>"><'+'/script>')
+</script>
+END

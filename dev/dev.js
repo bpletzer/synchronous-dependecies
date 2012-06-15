@@ -1,5 +1,5 @@
 <?php
 sleep(2);
 ?>
-var modus = "dev";
+var dev=true
 document.write('dev (2sec)<br/>')
