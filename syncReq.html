@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+START<br/>
+<script src="syncReq/require-2.0.2.js"></script>
+<script src="syncReq/syncQueue.js?r=<?php echo rand(); ?>"></script>
+<script src="syncReq/sync.js?r=<?php echo rand(); ?>"></script>
+<script>
+	require(["sync!syncReq/moduleA"], function (a) {
+		
+		console.log(a);
+	});
+	console.log("im selben script-tag")
+</script>
+DAZWISCHEN<BR/>
+<script>
+	console.error("nachfolgendes script-tag")
+</script>
+END<br/>
