@@ -19,5 +19,6 @@ $rand=rand();
 <script src="dev/sleep.js?r=<?php echo rand(); ?>"></script>
 <script>
 	document.write('<script src="dev/lookahead.js?r=<?= $rand; ?>"><'+'/script>')
+	document.write('<script data-main="bla/blub" src="dev/lastSrc.js?r=<?= $rand; ?>"><'+'/script>')
 </script>
 END
