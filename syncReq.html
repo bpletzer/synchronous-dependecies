@@ -5,7 +5,7 @@ START<br/>
 <script src="syncReq/sync.js?r=<?php echo rand(); ?>"></script>
 <script>
 	require(["sync!syncReq/moduleA"], function (a) {
-		
+		document.write('wuff')
 		console.log(a);
 	});
 	console.log("im selben script-tag")
