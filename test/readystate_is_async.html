@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+VORHER<br/>
+<script>
+	var callback = function callback(el) {
+	    if ( !el.done && 
+	    		(!el.readyState || el.readyState === "loaded" || el.readyState === "complete") ) {
+	        el.done = true;
+	        
+	        document.write('now<br/>')
+	        
+	        // Handle memory leak in IE
+	        el.onload = el.onreadystatechange = null;
+	    }
+	};
+	
+	setTimeout(function(){
+		alert('timeout')
+	}, 0)
+	document.write('<script src="http://code.jquery.com/jquery-1.7.2.js?r=<?php echo rand(); ?>" onload="callback(this)" onreadystatechange="callback(this)"><'+'/script>');
+	document.write('next document.write()\n<br/>')
+</script>
+<script>
+	document.write($().jquery + ' following inline script')
+</script>
+NACHHER
+<script src="../resources/js/sleep.js"></script>
