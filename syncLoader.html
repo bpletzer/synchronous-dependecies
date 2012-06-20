@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+START<br/>
+<script src="syncLoader/syncLoader.js?r=<?php echo rand(); ?>"></script>
+
+<script>
+	
+</script>
+
+
+DAZWISCHEN<BR/>
+<script>
+
+	console.log( sQ.require(["syncLoader/moduleA.js"], function(){
+		document.write('moduleA loaded<br/>')
+
+	}) );
+	
+	console.log( sQ.require(["syncLoader/moduleA.js", "syncLoader/moduleB.js"], function(a, b){
+			document.write(a, b, ' moduleA loaded again + moduleB<br/>')
+		}) );
+		
+</script>
+END<br/>
