@@ -14,7 +14,7 @@
 			dq: function () {
 				var item = queue.shift();
 				if ('function' === typeof item) {
-					item.call()
+					item.call(root)
 				}
 			},
 			// du: is script dataUri possible
@@ -28,7 +28,11 @@
 				module.factory = factory;
 
 				sQ.require( dependecies, function () {
-					module.result = factory.apply(this, arguments);
+					if ("function"===typeof factory) {
+						module.result = factory.apply(this, arguments);
+					} else {
+						module.resukl = factory;	
+					}		
 				});
 			},
 

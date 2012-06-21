@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<script src="syncLoader/syncLoader.js?r=<?php echo rand(); ?>"></script>
+
+<script>
+	top.codeQueue[((document.location.search.substring(1)).split('=')[1])].call(window)
+</script>
