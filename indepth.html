@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script>
+	function getSrc () {
+		return (document.getElementsByTagName( 'script' ))[ (document.getElementsByTagName( 'script' )).length - 1 ].getAttribute('src');
+	}
+	
+	temp = document.write
+	blub = document.write = function () {
+		console.log(arguments, getSrc(), new Date)
+		document.write = temp;
+		document.write.apply(document, arguments);
+		document.write = blub;
+	}
+</script>
+START<br/>
+<script src="indepth/one.js"></script>
+END
